@@ -9,7 +9,18 @@ class Cache {
 private:
   // TODO: private inner struct/class 선언 가능
   // TODO: private 멤버 변수와 함수 추가 가능
+  struct CacheEntry 
+	  {
+	  	std::string key;
+	  	int intValue;
+	  	double doubleValue;
+	  	bool isDouble;  // 값이 double인지 여부를 추적
+	  };
 
+	  CacheEntry entries[CACHE_SIZE];
+	  size_t numEntries = 0; // 캐시에 현재 저장된 항목 수
+
+	  void updateUsage(int index);
 public:
   Cache();
   ~Cache();
